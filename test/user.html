@@ -1,0 +1,46 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<table border="1">
+	    <tr>
+		<th>操作</th>
+		<th>编号</th>
+		<th>姓名</th>
+	    
+	    </tr>
+	    <tr>
+		<td><input type="button" value="选择" onclick="run1()"/></td>
+		<td>01</td>
+		<td>zhangsan</td>
+	    </tr>
+	    <tr>
+		<td><input type="button" value="选择" onclick="run2()"/></td>
+		<td>02</td>
+		<td>zhaosi</td>
+	    </tr>
+	    <tr>
+		<td><input type="button" value="选择" onclick="run3()"/></td>
+		<td>03</td>
+		<td>wangwu</td>
+	    </tr>
+	</table>
+    </body>
+    <!--<script type="text/javascript" src="js/user.js">
+    </script>-->
+    <script type="text/javascript">
+	function run1(){
+	    alert("run start");
+	    //var windows = window.opener;
+	    //window.document.write("test this window");
+	    window.opener.document.write("test parent window");
+	    //alert(windows);
+	    //window.opener.document.getElementById("username").value="test ok !";
+	    //windows.document.getElementById("username").value="testok!";
+	    alert("run ok");
+	}
+    </script>
+</html>
+
