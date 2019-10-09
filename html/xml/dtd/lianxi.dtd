@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT country(person+)>
+<!ELEMENT person(name,age,desc)>
+<!ELEMENT name(#PCDATA)>
+<!ELEMENT age(#PCDATA)>
+<!ELEMENT desc(#PCDATA)>
+
+<!ATTLIST name
+    color CDATA #REQUIRED
+>

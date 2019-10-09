@@ -1,0 +1,30 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<span>
+	<ol>
+	    <li>window.open --&gt;window.opener --&gt; windown.opener.document.getElementById--&gt;#1
+	    <li>document.getElementById("xxx").parentNode.replaceChild(new,old);</li>
+	</ol>
+	<ol>
+	    <li>SecurityError: Permission denied to access property "document" on cross-origin object</li>
+	    <li>Uncaught TypeError: ulp.replaceChlid is not a function</li>
+	</ol>
+	</span>
+
+	<pre>xml乱码问题:
+    通过编码可以将高级字符串转换为二进制字符串,
+    xml文档声明中的encoding是打开xml文档的时候使用的编码。
+    在文件保存的时候采用一个编码A，
+    得到编码A的二进制a。在打开文件的时候，
+    由于encoding使用的是编码B，而使用编码B来翻译二进制a是有问题的，
+    由此诞生了乱码。
+	</pre>
+    </body>
+    <script type="text/javascript" src="">
+    </script>
+</html>
+

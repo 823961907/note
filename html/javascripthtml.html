@@ -1,0 +1,117 @@
+<html>
+
+    <head>
+	<link rel="stylesheet" type="text/css" href="javascriptcss.css" />
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<h1>javascript</h1>
+	<p><font id="id1">基于对象</font>和<font id="id2">事件驱动</font>的脚本语言，主要执行在客户端(浏览器)上。</p>
+	<dd>
+	    <dl>交互性</dl>
+	    <dl>安全性</dl>
+	    <dl>跨平台</dl>
+	</dd>
+	<ul>
+	    <li>ECMASscript 标准（语法）</li>
+	    <li>BOM (浏览器对象)</li>
+	    <li>DOM Document object model</li>
+	</ul>
+	<p>html和js的桥<p>
+	<ol>
+	    <li>标签script,属性type=text/javascript</li>
+	    <li>引入外部文件,script src="xxx.js"</li>
+	</ol>
+	<p> 如果引入外部文件，则html文件中标签script中的js脚本将失效</p>
+	<p> script可以放在body或者head中。建议把代码放在body的后面,避免js脚本加载在标签之前。</p>
+	<!--<script type="text/javascript" src="jsdemo.js">
+	    //window.alert("hello");
+	</script> -->
+	<span id="spanid1">this is span</span>
+	<!--<script type="text/javascript">
+	    alert(document.getElementById("spanid1").innerHTML);
+	</script>-->
+	<p>代码组成</p>
+	<ul>
+	    <li>变量常量方法名等的标识符</li>
+	    <li>关键字</li>
+	    <li>注释,有三种写法和java一样</li>
+	    <li>变量 var 字符串、数字、boolean、Null、Undefined(未定义的),函数体内的变量为局部变量，不是函数体内的变量都是全局变量</li>
+	</ul>
+	<p>常用内置函数</p>
+	<ul>
+	    <li>typeof</li>
+	</ul>
+	<p>0和null是false，非false为true,true默认为1</p>
+	<p>js的运算符:算术运算符、赋值运算符、比较运算符、逻辑运算符、</p>
+	<p>三元运算符： 条件？值1:值2；</p>
+	<p>js的语句：判断语句、循环语句</p>
+	<p>js 数组:length长度，长度可变var array = [1,2,3,4]、var array=new Array(1,23,4,5)\Array(length)</p>
+	<p>js函数 .arguments和funciton, var functionboydy = functionname;function return 是function(); 动态函数Function("arguments","body"),匿名函数var getSum = function (){body,return 100 ;},getSum()为调用匿名函数的代码</p>
+	<span>
+	    <pre> javascript的	
+		<a href="https://www.w3school.com.cn/jsref/index.asp">对象:</a>
+    javascript对象
+    BOM对象，Brower Object Model:Window、Navigator（浏览器版本）、History（浏览器历史）等
+    DOM对象,
+	    </pre>
+	    <ul>
+		<li>Array</li>
+		<li>Math</li>
+		<li>String</li>
+		<li>Date</li>
+		<li>正则表达:RegExp . var reg = /^表达式$/,var reg = new regExp("表达式"),</li>
+	    </ul>
+	</span>
+	<span>
+	    <p>全局函数,不需要对象</p>
+	</span>
+	<span>	
+	    <pre>javascript的数组:
+	contact(){return []}拼接,   
+	join("分隔符"){return []},
+	pop[]删除返回最后一个元素。
+	push()向末尾添加元素return [].length
+	    </pre>
+	</span>
+	<span><input type="button" value="i am button" onclick="run()"/></span>
+	<span><p>html标签调用js方法：html和js的事件桥是onclick属性 onclick="jsmethod()"</p></span>
+	<span><p>匿名函数可以让html标签显的简单，html标签不用写onclick属性和属性值，</p></span>
+	<span><p>常用的事件：onclick,ondblclic,onfocus,onblur,onchange(select)</p></span>k
+    </body>
+    <script type="text/javascript" src="jsdemo.js">
+    </script>
+    <script type="text/javascript">
+	//alert(document.getElementById("spanid1").innerHTML);
+	for(var i = 0 ; i < 3 ; i++){
+	//    alert(i);
+	    window.document.write("i = "+i+"<br/>");
+	}
+	window.document.write("9*9table<br/>");
+	for(var i = 1 ; i <= 9 ; i++){
+	    for(var j = 1; j <= 9 ; j++){
+		var t = i * j ;
+		if(j <= i ){
+		    window.document.write(j+" * "+i+" = " + t +" ");
+		}else{
+		    continue;
+		}
+	    }
+	    window.document.write("<br/>");
+	}
+	
+	window.document.write("<table border='1'>");
+	for(var i = 1 ; i <= 9 ; i++){
+	    window.document.write("<tr>");
+	    for(j = 1 ; j <= i ; j++){
+		//window.document.write("<td>"+j+" * "+i+" = " + t +"</td>");
+		window.document.write("<td>"+j+" * "+i+" = " + t +"</td>");
+	    }
+	    window.document.write("</tr>");
+	    //window.document.write("<br/>");
+	}
+	window.document.write("</table>");
+	
+    </script>
+</html>
+

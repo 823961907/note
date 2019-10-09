@@ -1,0 +1,39 @@
+div{
+    background-color:fuchsia;
+    color:yellow;
+}
+
+div.name1{
+    font-size:30px;
+    color:red;
+}
+
+.name1{
+    color:yellow;
+}
+
+#id1{
+    font-size:22px;
+}
+
+/*未访问*/
+a:LINK{
+    text-decoration:none;
+    color:blue;
+}
+/*访问完成*/
+a:VISITED{
+    color:yellow;
+    font-size:20px;
+}
+/*悬停*/
+a:HOVER{
+    color:red;
+    font-size:25px;
+}
+/*点击完成*/
+a:ACTIVE{
+    color:green;
+    font-size:35px;
+}
+

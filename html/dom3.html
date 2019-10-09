@@ -1,0 +1,56 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+
+    <body>
+	<h3>提交表单</h3>
+	<form id="formId" name="formName" action="success.html" method="post" onsubmit="return form_submit()">
+	    <table>
+
+		<tr>
+		    <td>username</td>
+		    <td>
+			<input type="text" id="username_id" name="username_name" onfocus="username_focus()"/>
+			<span id="username_span"></span>
+		    </td>
+		</tr>
+		    <td>密码：</td>
+		    <td>
+			<input type="password" id="password_id" name="password_name"/>
+			<span id="password_span"></span>
+		    </td>
+
+		<tr>
+		    <td>确认密码：</td>
+		    <td>
+			<input type="password" id="repassword_id" name="repassword_name"/>
+			<span id="repassword_span"></span>
+		    </td>
+		</tr>
+
+		<tr>
+		    <td>邮箱：</td>
+		    <td>
+			<input tyep="text" id="email_id" name="email_name"/>
+			<span id="email_span"></span>
+		    </td>
+		</tr>
+
+		<tr>
+		    <td colspan="2">
+			<input type="submit" value="onsubmit事件提交"/>
+			<input type="button" value="js函数提交" onclick="jsSubmit()"/>
+		    </td>
+		</tr>
+
+	    </table>
+	</form>
+
+    </body>
+
+    <script type="text/javascript" src="js/f_submit.js">
+    </script>
+</html>
+

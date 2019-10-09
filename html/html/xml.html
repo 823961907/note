@@ -1,0 +1,81 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<h3>可扩展 标记 语言</h3>
+	<pre>可扩展的：和html对比。
+    html的标签的功能是开发商封装固定好的我们直接使用就可以了。xml是自定义的标签，例如：&lt;abc&gt;
+    html是浏览器用来解释渲染成画面的(显示数据)，xml是用来(传输数据)的。
+    html和xml都是用标签封装数据的，html封装后由浏览器解释渲染html标签所封装的数据。
+    xml封装数据在系统与系统之间传输，不做前台显示的功能。
+	</pre>
+	<h4>xml的语法</h4>
+	    <ul>
+		<li>文档声明</li>
+		    <pre> 写法：<?xml version="1.0" ?>
+    必须写在第一行第一列的位置。
+    属性：
+	version="1.0"
+	encoding="UTF-8"
+	standalone="yes" yes说明此文档是独立的no，则可以引入其他文件
+		<li>元素</li>
+		    <pre>
+    1.指xml文件中出现的标签,一个标签分为起始标签和结束标签。
+    包含主体&lt;abc&gt; 文本 &lt;/abc&gt;
+    不包含主体&lt;abc/&gt;
+    2.不能交叉嵌套.
+    3.只能有一个根元素。
+    4.区分大小写
+    5.不能使用空格和冒号
+			
+		    </pre>
+		<li>属性</li>
+		    <pre>
+    在同一个标签中不能由相同的属性。
+		    </pre>
+		<li>CDATA</li>
+		    当内容转移动作比较多的时候可以使用CDATA，&lt;![CDATA[内容]]&gt;
+		<li>PI处理指令</li>
+		    可以引入css 使得浏览器打开效果和HTML类似
+	    </ul>
+	<h4>xml的约束</h4>
+	    <ul>
+		<li>DTD</li>
+		    <pre>
+    用来编写xml的语法，例如某引入了某dtd约束文件的xml文件中只可以使用.dtd文件所指定的标签对象，
+    并且标签的顺序也得严格按照.dtd文件中声明的顺序来写。
+    详情参照xml文件。
+    &lt;!ELEMENT name type &gt;
+    type:(#PCDATA)  EMPTY   ANY   (子元素)
+    字元素之间的关系: ,和| ：, 要求顺序一致，|只能多选一出现。
+    子元素出现次数：+(1,&gt;1) ，*(任意)，?(0,1)
+    属性：Attribute:
+    &lt;!ATTLIST elementName(元素名称) 属性名称 属性类型 属性约束&gt;
+    &lt;!ATTLIST name
+	color CDATA #REQUIRED
+    &gt;
+    属性类型：CDATA、枚举（a|b）多选一。ID,不能是纯数字。
+    属性约束：#REQUIRED 属性必须出现,#IMPLIED 可选出现,#FIXED "值",固定值。
+    实体的定义：
+	&lt;!ENTITY 别名 值 &gt;
+	元素引用 &别名; 得到值
+    
+		    </pre>
+		<li>schema</li>
+	    </ul>
+	<span>
+	    <h2>xml的解析</h2>
+		<p>DOM document object model和SAX   simple api for xml</p>
+		<p>dom是内存中的dom树。SAX基于事件解析，边读边解析</p>
+		<p>xml的解析开发包:JAXP和DOM4j</p>
+	    <h4>CRUD    create,read,update,delete</h4>
+	</span>
+    </body>
+
+    <script type="text/javascript" src="">
+    </script>
+
+</html>
+

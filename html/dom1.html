@@ -1,0 +1,58 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<h3>下拉框联动</h3>
+	<select id="select1">
+	    <option value="A" name="option">A</option>
+	    <option value="B" name="option">B</option>
+	    <option value="C" name="option">C</option>
+	    <option value="D" name="option">D</option>
+	<select>
+
+	<select id="select2">
+	<select>
+    </body>
+
+    <script type="text/javascript">
+	//alert("testok");
+	var arr = [];
+	arr[0] = new Array("A","A1","A2","A3","A4","A5","A6","A7");
+	arr[1] = new Array("B","B1","B2","B3");
+	arr[2] = new Array("C","C1","C2","C3");
+	arr[3] = new Array("D","D1","D2","D3");
+
+	document.getElementById("select1").onchange = function(){
+	    //alert(this.getElementsByTagName("option")[0].value);
+	    var select2 = document.getElementById("select2");
+	    //alert(select2.nodeName);
+	    var selectOption = select2.getElementsByTagName("option");
+	    for(var i = 0 ; i<selectOption.length ; i++){
+		var option = selectOption[i];
+		select2.removeChild(option);
+		i--;
+	    }
+	    //alert(this.value);
+	    var selectV = this.value;
+    
+	    for(var i = 0; i<arr.length ; i++){
+		    //alert(arr[i].length);
+		    var inarr = arr[i];
+		    for(var j = 1 ; j < inarr.length ;j++){
+			if(inarr[0] == selectV){    
+			    //alert(inarr[j]);
+			    var option2 = document.createElement("option");
+			    var text = document.createTextNode(inarr[j]);
+			    option2.appendChild(text);
+			    select2.appendChild(option2);
+			}
+		    }
+	    }
+	    var s2option = document.create
+
+	}
+    </script>
+</html>
+

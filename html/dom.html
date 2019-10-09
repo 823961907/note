@@ -1,0 +1,134 @@
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<h1>Document object Model</h1>
+	<h1>把所有标签和文本以及属性都封装成了对象</h1>
+	<span id="span1">dom 可以解析html和xml,使用树状结构(只有一个根节点),没有子节点的节点叫叶子结点，只有子节点的节点叫根节点。每个结点都只有一个父节点</span>
+	<br/>
+	<span> dom 对象：document(整个dom树),element(元素标签),Attribute(属性),text:文本对象。Node，节点对象</span>
+	<br/>
+	<span>DHTML=html+css+dom(操作HTML标签)+javascript(提供逻辑)</span>
+	<br/>
+	<input type="text" id="nameid" value="zhangsan"/><br/>
+	<input type="text" name="username" value="zhaosi"/><br/>
+	<!--<input type="text" name="username" value="wangwu"/><br/>
+	<input type="text" name="username" value="zhaoliu"/>-->
+	<ul id="ulId">
+	    <li>北京</li>
+	    <li id="liId">上海</li>
+	    <li>广州</li>
+	</ul>
+	<ul>
+	    <li>北京1</li>
+	    <li id="tt">河南1</li>
+	    <li>广州1</li>
+	</ul>
+	<button id="mybutton">
+	i am button
+	</button>
+	<span id="span1">
+	</span>
+	<span id="span2">
+	    this is span
+	</span>
+	<h3>获取焦点的事件<h3>
+	输入姓名：<input type="text" name="username" onfocus="onfocusRun()" onblur="onblurRun()"/><span id="span3"></span>
+	<br/>
+	<input type="checkbox" name="quanxuan" id="quanxuan" onclick="allRun()"/>all<br/>
+	<input type="checkbox" name="quanxuan" id="quanxuan2" onclick="allRun()"/>all2<br/>
+	<input type="checkbox" name="checkbox" checked="true"/>t0<br/>
+	<input type="checkbox" name="checkbox"/>t1<br/>
+	<input type="checkbox" name="checkbox"/>t2<br/>
+	<input type="checkbox" name="checkbox"/>t3<br/>
+	<input type="checkbox" name="checkbox"/>t4<br/>
+	<input type="button" id="fanxuan" value="反选" onclick="fanxuan()" />
+	<br/>
+
+	<span id="span4">span
+	    <div id="divtest">div</div>
+	</span>
+
+	<!--<frame src="dom1.html" name="frame1">
+	</frame>-->
+    </body>
+    <script type="text/javascript">
+
+	document.getElementById("span4").onclick = function(){
+	    var divarr = this.getElementsByTagName("div");
+	    var div = divarr[0];
+	    //alert(div.style.display);
+	    //alert(div.nodeType);
+	    //alert(div.nodeName);
+	    if(div.style.display == "none"){
+		div.style.display = "";
+	    }else{
+		div.style.display = "none";
+	    }
+	}
+    
+	var input = document.getElementById("nameid");
+	var input_value = input.getAttribute("value");
+	//alert(input_value);
+	input.setAttribute("value","zhaosi");
+	var input2 = document.getElementsByName("username");
+	//alert(input.value);
+	//alert(input2.value);错误的写法，没有使用[]
+	//alert(typeof(input2[0].value));
+	//alert(input2[0].value);
+	
+	var li = document.createElement("li");
+	var text = document.createTextNode("深圳");
+	li.appendChild(text);
+
+	//ul.appendChild(li)
+	var ul = document.getElementsByTagName("ul")[0];
+	ul.appendChild(li);
+
+	var newLi = document.createElement("li");
+	var text1 = document.createTextNode("上海111");
+	newLi.appendChild(text1);
+
+	var ul1 = document.getElementById("ulId");
+	var li1 = document.getElementById("liId");
+	ul1.insertBefore(newLi,li1);
+	
+	var ul1 = document.getElementById("ulId");
+	var li = ul1.firstChild;// nodeType = 3 文本text 
+	//var li = ul1.firstElementChild; //nodeType =1 标签
+	//alert(li.nodeType);
+
+	document.getElementById("liId").onclick = function() {
+	    var sh = document.getElementById("liId");
+	    var tt = document.getElementById("tt");
+	    //var ulp = sh.parentNode;
+	    var ulp = this.parentNode;
+	    
+	    alert(ulp.nodeType);
+	    alert(ulp.nodeName);
+	    alert(ulp.nodeValue);
+	    ulp.removeChild(this);
+	    //ulp.replaceChlid(tt,sh);
+	}
+	var newButton = document.getElementById("mybutton").cloneNode(true);
+	var span = document.getElementById("span1");
+	span.appendChild(newButton);
+
+	var span2 = document.getElementById("span2");
+	//alert(span2.innerHTML);
+	function onfocusRun(){
+	    var span3 = document.getElementById("span3");
+	    span3.innerHTML = "got!";
+	}
+	function onblurRun(){
+	    var span3 = document.getElementById("span3");
+	    span3.innerHTML = ""
+	}
+    </script>
+    <script type="text/javascript" src="dom.js">
+    </script>
+
+</html>
+

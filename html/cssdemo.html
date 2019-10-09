@@ -1,0 +1,71 @@
+<html>
+<!-- ====================================================================================== -->
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="div.css">
+	<style type="text/css">
+	    @import url("div.css");
+	    span{
+		background-color:red;
+		color:blue;
+	    }
+	    input:FOCUS{
+		background-color:gray;
+	    }
+	</style>
+    </head>
+<!-- ====================================================================================== -->
+    <body>
+	<a href="#" name="top"/></a>
+	<h1>层叠样式表 style sheet</h1>
+
+	<div>
+	    <pre>选择器{
+    属性：属性值
+    属性：属性值
+    属性：属性值
+}
+	    </pre>
+	</div>
+	<h3>和html结合的几种方式：</h3>
+
+	<div class="name1">
+	<ol>
+	    <li>style属性</li>
+	    <li>head中定义style标签</li>
+	    <li>外部文件引入head中import: @import url("xxx.css");<font color="blue">import需要在style标签内部使用</font></li>
+	    <li>外部文件引用2:通过 link标签,需要在head标签内部使用，无须在style标签内部使用</li>
+	</ol>
+	</div>
+	<h3>css 的优点：</h3>
+	<span class="name1">css 使得 html的标签和样式耦合性降低，使得样式代码很少复用。</span>
+	<br/>
+	<h4>css 的选择器分类：</h4>
+	<span>cass link rel="stylesheet" type="text/css" href="xxx.css"  test</span>
+	<br/>
+	<span>选择器结构，css样式代码作用域(标签),高级选择器和基本选择器</span>
+	<br/>
+	<span>class 属性可以让css 选择器选择到相同标签中的某一个标签作为css样式化对象</span>
+	<br/>
+	<span id="id1">id 属性也可以让css 选择器选择到相同标签中的某一个标签作为css样式化对象</span>
+	<br/>
+	<span>一般情况下：id用于js。一般唯一。class一般用于css 。</span>
+	<br/>
+	<span><p>嵌套标签的css选择器。嵌套式一种关联关系。</p>	
+	    <p>所以选择内层标签的样式设置时，使用关联选择器：嵌套的标签用空格隔开 ,例如 div font{ color:red }</p>
+	</hr>
+	<span><p>基本选择器，标签选择器、class选择器，id选择器</p></span>
+	<span><pre>高级选择器:
+    关联选择器:用空格隔开。
+    组合选择器:用逗号隔开。(#id和.class共用同一个样式设置时。使用组合标签，每个选择器以逗号隔开。)
+    伪元素选择器:主要用于动态效果，标签：状态{样式属性：样式值}。例如：input：悬停{背景色：红色}
+	<h4>css 的选择器的优先级：</h4>
+	<span><p>标签选择器&lt;class选择器&lt;id选择器&lt;style</p></span>
+	<input type="text"/>
+	<a href="#top">back top </a>
+	<a href="http://www.baidu.com">baidu</a>
+    </body>
+
+<!-- ====================================================================================== -->
+</html>
+
