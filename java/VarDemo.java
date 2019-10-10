@@ -3,6 +3,15 @@ class VarDemo{
     public static void main(String[] args){
 	//byte 1个字节 8位；short、char 2个字节 16位；int float 4个字节 32位；double、long 8个字节 64位；boolean;
 	byte bb = 3; // 申请byte大小的内存, -127-128
+	
+	//一般情况下： byte bb = 3 ; 其实占两行代码. 
+	//第一行:byte bb;第二行bb=3；
+	//所以在内存中有两个动作。
+	//以此类推：a+=3和a=a+3；在内存中是有区别的。	
+	//a+=3在内存中有一个自动的向下强制类型转换，a=a+3无法完成这个动作.
+	//所以a=a+3的写法，在编译的时候会报错(类型转换异常)。
+
+
 	bb = 8; //修改内存中b的值，b的引用值
 	System.out.println(bb);
 
