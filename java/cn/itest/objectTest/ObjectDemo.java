@@ -62,5 +62,11 @@ public class ObjectDemo{
 	System.out.println(p1 == p2);
 	System.out.println(p1.equals(p2));//在Object 源码中，还是引用的==
 	System.out.println(p1.equals(p3));//在Object 源码中，还是引用的==
+
+	Class clazz1 = p1.getClass();
+	Class clazz2 = p2.getClass();
+	System.out.println(clazz1 == clazz2);
+	System.out.println(clazz1.getName());
+	
     }
 }
