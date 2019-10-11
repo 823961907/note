@@ -1,0 +1,31 @@
+
+<%@ page %>
+<html>
+
+    <head>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    </head>
+    <body>
+	<h3>jsp 概念：</h3>
+	<pre>浏览器不可以直接解释jsp。因为jsp中有java代码,web容器会调用jvm编译jsp中的java代码并和html代码整合在一起合成一个servlet.class文件，
+最后客户端浏览器得到的数据是：web容器调用内存中的.class的执行结果</pre>
+	
+	<pre>
+3大指令
+&lt;%@ 指令元素 属性名=属性值 %&gt;
+page:设置jsp页面的属性
+include:引入文件
+taglib:
+
+9大内置对象
+
+jsp语法：
+    &lt;%! %&gt;成员方法成员变量
+    &lt;%= %&gt;输出内容
+    &lt;% %&gt;局部变量，语句
+	</pre>
+    </body>
+    <script type="text/javascript" >
+    </script>
+</html>
+
