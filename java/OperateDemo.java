@@ -1,6 +1,8 @@
 class OperateDemo{
 
     public static void main(String[] args){
+	//位（二进制）级别运算。& ^ | 。一个数 异或 同一个数两次，结果还是这个数 6 ^ 3 ^ 3 = 6
+	// ~ 取反操作。~6 = -X
 	int x = 6370;
 	x = x / 1000 * 1000;//最后结果x = 6000
 	System.out.println(x);
@@ -20,5 +22,8 @@ class OperateDemo{
 	short ee = 3;
 	ee += 3;//相对下一行的报错，此行代码jvm做了一次向下强转的动作。
 	//ee = ee + 3;//3 默认是int 类型，ee是shrot类型，丢失精度，所以jvm没有做向下强转的动作。
+
+	System.out.println(3<<2);//3 左移两位，左移高位舍弃，低位补零, 3 << 2 = 3 * 2的2次方
+	//右移相当于除以2的n次方
     }
 }
