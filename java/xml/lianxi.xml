@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<country>
+    <person>
+	<name color="red">moumou</name>
+	<age>18</age>
+	<desc>nan</desc>
+    </person>
+    <person>
+	<name color="blue">limou</name>
+	<age>26</age>
+	<desc value="abc">nan</desc>
+    </person>
+</country>
