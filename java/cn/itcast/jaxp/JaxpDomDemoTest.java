@@ -9,6 +9,13 @@ import javax.xml.parsers.DocumentBuilder;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.w3c.dom.Element;
+
+import cn.itcast.utils.JaxpDomUtil;
 
 
 public class JaxpDomDemoTest{
@@ -16,6 +23,7 @@ public class JaxpDomDemoTest{
     public static void main(String[] args){
 	try{
 	    run1();
+	    run2();
 	}catch(Exception e){
 	    e.printStackTrace();
 	}
@@ -48,6 +56,20 @@ public class JaxpDomDemoTest{
 	    //System.out.println(node.getNodeValue());
 	}
 
+    }
+
+    public static void run2() throws Exception{
+	String path = "xml/lianxi.xml";
+	Document document = JaxpDomUtil.getDocument(path);
+	Node person = document.getElementsByTagName("person").item(1);
+	Element school= document.createElement("school");
+	school.setTextContent("beijie");
+	person.appendChild(school);
+
+	//此时内存中的document已经发生了改变
+	TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	Transformer transformer = transformerFactory.newTransformer();
+	transformer.transform(new DOMSource(document),new StreamResult(path));
     }
 
 }
