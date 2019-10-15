@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/login.css">
     </head>
     <body>
-	<form action="LoginServlet" method="post">
+	<form action="../LoginServlet" method="post">
 	    <table name="lrTable" id="lrTableId" class="lrTableClass">
 		<tr >
 		    <td colspan="2" class="td1Class">用户登录</td>
@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 		    <td colspan="2">
-			<input type="submit" value="login"/>    
+			<input type="submit" value="login" id="loginSubmit"/>
 			<input type="button" id="registButtonId" value="regist"/>
 		    </td>
 		</tr>
@@ -36,9 +36,14 @@
 
     //跳转注册页面
     document.getElementById("registButtonId").onclick = function(){
-	//alert("test ok");
+	alert("test ok");
 	window.location.href="http://127.0.0.1:8080/jsp/regist.jsp";
     }
-
+    document.getElementById("loginSubmit").onclick = function(){
+	alert("test test");
+    }
 </script> 
+<script type="text/javascript" src="js/login.js"> 
+</script> 
+
 </html>
