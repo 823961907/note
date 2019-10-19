@@ -3,7 +3,7 @@
 <html>
     <head>
 	<title>first jsp page</title>
-	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
     </head>
     <body>
 	<form action="../LoginServlet" method="post">
@@ -21,6 +21,7 @@
 		</tr>
 		<tr>
 		    <td colspan="2">
+			<div id="myDiv">ajax 登录信息</div>
 			<input type="submit" value="login" id="loginSubmit"/>
 			<input type="button" id="registButtonId" value="regist"/>
 		    </td>
@@ -37,13 +38,14 @@
     //跳转注册页面
     document.getElementById("registButtonId").onclick = function(){
 	alert("test ok");
-	window.location.href="http://127.0.0.1:8080/jsp/regist.jsp";
+	window.location.href="http://127.0.0.1:8080/hello/jsp/regist.jsp";
     }
     document.getElementById("loginSubmit").onclick = function(){
-	alert("test test");
+	//alert("test test");
+	console.log("text");
     }
 </script> 
-<script type="text/javascript" src="js/login.js"> 
+<script type="text/javascript" src="../js/login.js"> 
 </script> 
 
 </html>

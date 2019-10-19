@@ -31,16 +31,19 @@ public class LoginServlet extends HttpServlet{
 
 	if(username1.equals("") || password1.equals("")){
 	    System.out.println("用户名或者密码为空" );
-	}
-	System.out.println("username = " + username);
-	System.out.println("password = " + password);
-	
+	}else{
+	    System.out.println("username = " + username);
+	    System.out.println("password = " + password);
 
+	}
+	
 	//response
+	/*
 	response.setContentType("text/html");
 	PrintWriter out = response.getWriter();
 	out.println("hello");
 	System.out.println("run new LoginServlet().doGet()");
+	*/
     }
     protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	doGet(request,response);
