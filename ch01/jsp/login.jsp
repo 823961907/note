@@ -13,11 +13,11 @@
 		</tr>
 		<tr>
 		    <td >用户名</td>
-		    <td><input type="text" name="username"/></td>
+		    <td><input type="text" name="username" id="loginUsername"/></td>
 		</tr>
 		<tr>
 		    <td>密码</td>
-		    <td><input type="password" name="password"/></td>
+		    <td><input type="password" name="password" id="loginPassword"/></td>
 		</tr>
 		<tr>
 		    <td colspan="2">
