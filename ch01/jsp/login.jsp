@@ -24,6 +24,7 @@
 			<div id="myDiv">ajax 登录信息</div>
 			<input type="submit" value="login" id="loginSubmit"/>
 			<input type="button" id="registButtonId" value="regist"/>
+			<input type="button" id="ajaxTest" value="ajax"/>
 		    </td>
 		</tr>
 	    </table>
