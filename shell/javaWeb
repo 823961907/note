@@ -1,0 +1,7 @@
+javac -d WEB-INF/classes/ src/cn/action/
+
+cp hello.war ~/Tools/server/tomcat-war-test/webapps/.
+
+jar -cvf hello.war WEB-INF css js jsp config
+
+
