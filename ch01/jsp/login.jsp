@@ -38,8 +38,9 @@
 
     //跳转注册页面
     document.getElementById("registButtonId").onclick = function(){
-	alert("test ok");
+	//alert("test ok");
 	window.location.href="http://127.0.0.1:8080/hello/jsp/regist.jsp";
+	console.log("register.jsp load");
     }
     document.getElementById("loginSubmit").onclick = function(){
 	//alert("test test");

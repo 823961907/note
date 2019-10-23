@@ -28,6 +28,7 @@
      Welcome to Tomcat
   </description>
 
+  <!-- servlet -->
   <servlet>
     <servlet-name>ActionDemo</servlet-name>
     <servlet-class>cn.action.ActionDemo</servlet-class>
@@ -46,6 +47,17 @@
     <url-pattern>/LoginServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>RegistServlet</servlet-name>
+    <servlet-class>cn.action.RegistServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistServlet</servlet-name>
+    <url-pattern>/RegistServlet</url-pattern>
+  </servlet-mapping>
+  <!-- servlet -->
+
+  <!-- filter -->
   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>cn.filter.LoginFilter</filter-class>
@@ -58,9 +70,12 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/LoginServlet</url-pattern>
   </filter-mapping>
+  <!-- filter -->
 
+  <!-- listener -->
   <listener>
     <listener-class>cn.listener.ListenerTest</listener-class>
   </listener>
+  <!-- listener -->
 
 </web-app>

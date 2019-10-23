@@ -1,4 +1,4 @@
-#lrTableId{
+#registTableId{
     font-family: verdana,arial,sans-serif;
     font-size:11px;
     color:#333333;
@@ -6,7 +6,7 @@
     border-color: #666666;
     border-collapse: collapse;
 }
-.lrTableClass{
+.registTableClass{
     margin:0 auto;
     border-collapse: collapse;
     text-align: center;
