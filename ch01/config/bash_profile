@@ -1,0 +1,10 @@
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
+
+PATH=$JAVA_HOME/bin:$PATH:.
+
+CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:/Users/lipengyang/Tools/apache-tomcat-7.0.96/lib/servlet-api.jar:/Users/lipengyang/Desktop/git/note/ch01/src:/Users/lipengyang/Desktop/git/note/ch01/lib:.
+
+export JAVA_HOME
+export PATH
+export CLASSPATH
+

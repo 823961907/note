@@ -11,6 +11,13 @@ public class BaseUser{
 
     public BaseUser(){}
 
+    public BaseUser(String userName,String password,String rePassword,String passwordTip){
+	this.userName = userName;
+	this.password = password;
+	this.rePassword = rePassword;
+	this.passwordTip = passwordTip;
+    }
+
     public void setUserName(String userName){
 	this.userName = userName;
     }
