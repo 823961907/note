@@ -26,14 +26,17 @@ public class DBUtil{
 	    prop.load(in);
 
 	    url = prop.getProperty("url");
-	    user = prop.getProperty("user");
-	    password = prop.getProperty("password");
-	    driverClass = prop.getProperty("driverClass");
-
 	    System.out.println(url);
+
+	    user = prop.getProperty("user");
 	    System.out.println(user);
+
+	    password = prop.getProperty("password");
 	    System.out.println(password);
+
+	    driverClass = prop.getProperty("driverClass");
 	    System.out.println(driverClass);
+
 	    
 	}catch(Exception e){
 	    e.printStackTrace();

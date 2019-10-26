@@ -1,5 +1,13 @@
 package cn.action;
 
+import cn.bean.BaseUser;
+import cn.dao.UserDao;
+import cn.dao.impl.UserDaoImpl;
+
+
+import java.util.List;
+
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
@@ -10,10 +18,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.bean.BaseUser;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
 //import org.json.simple.parser.ParseException;
 
 
@@ -44,23 +52,42 @@ public class RegistServlet extends HttpServlet{
 	out.println("hello");
 	*/
 
-	String responseStr = "{\"res\":1}";
-	System.out.println(responseStr + "\n" + responseStr.getClass());
-	try{
-	    JSONObject jsonObj = (JSONObject)(new JSONParser().parse(responseStr));
-	    System.out.println(jsonObj.toJSONString() + "\n" + jsonObj.getClass());
-	//}catch(ParseException e){
-	}catch(Exception e){
+	
+	BaseUser registBean = new BaseUser();
+	registBean.setUserName(username);
+	registBean.setPassword(password);
+	registBean.setRePassword(repassword);
+	registBean.setPasswordTip(passwdTip);
 
-	    e.printStackTrace();
-	}finally{
-	    System.out.println("try{}catch(){}finally{...} ");
-	}
+	UserDao dao = new UserDaoImpl();
+	
+	//int i = dao.registUser(registBean);
+	List<BaseUser> users = dao.getAllUser();
+	System.out.println("users size = " + users.size());
+	/*
+	registBean = dao.getUserByUserName(username);
+	if(registBean == null ){
+	    int i = dao.registUser(registBean);
+	}else{
+	    //String responseStr = "{\"res\":" + i + "}";
+	    String responseStr = "{\"res\":\"1\"}";
+	    System.out.println(responseStr + "\n" + responseStr.getClass());
+	    try{
+		JSONObject jsonObj = (JSONObject)(new JSONParser().parse(responseStr));
+		System.out.println(jsonObj.toJSONString() + "\n" + jsonObj.getClass());
+		//}catch(ParseException e){
+	    }catch(Exception e){
+		e.printStackTrace();
+	    }finally{
+		System.out.println("try{}catch(){}finally{...} ");
+	    }
 
 	response.setContentType("application/json");
 	response.getWriter().write(responseStr);
 
 	System.out.println("run new RegistServlet().doGet()");
+	}
+	*/
     }
     protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	System.out.println("run new RegistServlet().doPost()");
