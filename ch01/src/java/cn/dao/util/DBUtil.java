@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
+
+import java.sql.ResultSet;
 //import RuntimeException;
 
 public class DBUtil{
@@ -19,6 +21,7 @@ public class DBUtil{
 
     static{
 	try{
+	    System.out.println("DBUtil init jdbc.properties");
 	    Class clazz = DBUtil.class;
 
 	    Properties prop = new Properties();
@@ -37,8 +40,18 @@ public class DBUtil{
 	    driverClass = prop.getProperty("driverClass");
 	    System.out.println(driverClass);
 
+	    System.out.println("DBUtil init complete");
+
 	    
 	}catch(Exception e){
+	    e.printStackTrace();
+	}
+    }
+    static {
+	try {
+	    // 将加载驱动操作，放置在静态代码块中.这样就保证了只加载一次.
+	    Class.forName(driverClass);
+	} catch (ClassNotFoundException e) {
 	    e.printStackTrace();
 	}
     }
@@ -54,7 +67,17 @@ public class DBUtil{
     }
 
 
-    public static void close(Statement stmt,Connection conn){
+    public static void close(ResultSet rs,Statement stmt,Connection conn){
+	if(rs != null){
+	    try{
+		rs.close();
+		System.out.println("resultSet close()");
+	    }catch(SQLException e){
+		e.printStackTrace();
+		throw new RuntimeException(e);
+	    }
+	}
+
 	if(stmt != null){
 	    try{
 		stmt.close();
@@ -91,7 +114,7 @@ public class DBUtil{
 	    System.out.print("Exception");
 	    e.printStackTrace();
 	}finally{
-	    DBUtil.close(stmt,conn);
+	    //DBUtil.close(stmt,conn);
 	}
     }
 

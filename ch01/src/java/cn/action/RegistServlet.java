@@ -62,15 +62,20 @@ public class RegistServlet extends HttpServlet{
 	UserDao dao = new UserDaoImpl();
 	
 	//int i = dao.registUser(registBean);
+	System.out.println("ready read mysql ...");
 	List<BaseUser> users = dao.getAllUser();
 	System.out.println("users size = " + users.size());
-	/*
+
 	registBean = dao.getUserByUserName(username);
+
 	if(registBean == null ){
+	    String responseStr = "{\"res\":\"0\"}";
 	    int i = dao.registUser(registBean);
+	    response.setContentType("application/json");
+	    response.getWriter().write(responseStr);
 	}else{
-	    //String responseStr = "{\"res\":" + i + "}";
 	    String responseStr = "{\"res\":\"1\"}";
+	    //String responseStr = "{\"res\":" + i + "}";
 	    System.out.println(responseStr + "\n" + responseStr.getClass());
 	    try{
 		JSONObject jsonObj = (JSONObject)(new JSONParser().parse(responseStr));
@@ -87,7 +92,6 @@ public class RegistServlet extends HttpServlet{
 
 	System.out.println("run new RegistServlet().doGet()");
 	}
-	*/
     }
     protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
 	System.out.println("run new RegistServlet().doPost()");
