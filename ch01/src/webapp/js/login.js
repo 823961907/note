@@ -1,5 +1,4 @@
 //alert("test");
-
 function isEmpty(value){
     if(value == null || value == "" || value == "undefined" || value == undefined || value == "null"){
         return true;
@@ -11,8 +10,7 @@ function isEmpty(value){
         }
         return false;
     }
-}
-
+} 
 document.getElementById("ajaxTest").onclick = function(){
 //document.getElementById("loginSubmit").onclick = function(){
     console.log("test check");
@@ -27,7 +25,9 @@ document.getElementById("ajaxTest").onclick = function(){
 	console.log("got xmlhttp obj1");
     }
 
-    xmlHttp.open("GET","../jsp/loginError.html",true);
+    //xmlHttp.open("GET","../jsp/loginError.html",true);
+    xmlHttp.open("POST","../jsp/loginError.html",true);
+    
     console.log("open method");
 
     xmlHttp.onreadystatechange = function(){
@@ -67,13 +67,15 @@ document.getElementById("loginSubmit").onclick = function(){
 	console.log("got xmlhttp obj1");
 	}
 
-	xmlHttp.open("GET","../jsp/loginError.html",true);
-	console.log("open method");
+	//xmlHttp.open("GET","../jsp/loginError.html",true);
+	xmlHttp.open("POST","../jsp/loginError.html",true);
+	console.log("ajax xmlHttp open method");
 
 	xmlHttp.onreadystatechange = function(){
 	    console.log(xmlHttp.readState);
 	    console.log(xmlHttp.status);
 	    if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+		console.log(xmlHttp.responseText);
 		document.getElementById("myDiv").innerHTML = xmlHttp.responseText;
 	    }
 	}
@@ -81,7 +83,7 @@ document.getElementById("loginSubmit").onclick = function(){
 
 	//xmlHttp.open("GET","../jsp/loginError.html",true);
 	xmlHttp.send();
-	console.log("send method");
+	console.log("ajax xmlHttp send method");
 	//ajax 显示完成
 	return false;
     }else{
