@@ -25,8 +25,8 @@ document.getElementById("ajaxTest").onclick = function(){
 	console.log("got xmlhttp obj1");
     }
 
-    //xmlHttp.open("GET","../jsp/loginError.html",true);
-    xmlHttp.open("POST","../jsp/loginError.html",true);
+    xmlHttp.open("GET","../jsp/loginError.html",true);
+    //xmlHttp.open("POST","../jsp/loginError.html",true);
     
     console.log("open method");
 
@@ -63,13 +63,13 @@ document.getElementById("loginSubmit").onclick = function(){
 	    xmlHttp = new XMLHttpRequest();
 	    console.log("got xmlhttp obj");
 	}else{
-	xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-	console.log("got xmlhttp obj1");
+	    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+	    console.log("got xmlhttp obj1");
 	}
 
 	//xmlHttp.open("GET","../jsp/loginError.html",true);
 	xmlHttp.open("POST","../jsp/loginError.html",true);
-	console.log("ajax xmlHttp open method");
+	console.log("ajax xmlHttp request method");
 
 	xmlHttp.onreadystatechange = function(){
 	    console.log(xmlHttp.readState);
@@ -83,7 +83,7 @@ document.getElementById("loginSubmit").onclick = function(){
 
 	//xmlHttp.open("GET","../jsp/loginError.html",true);
 	xmlHttp.send();
-	console.log("ajax xmlHttp send method");
+	console.log("ajax xmlHttp request send method");
 	//ajax 显示完成
 	return false;
     }else{

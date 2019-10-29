@@ -8,6 +8,8 @@ $(function(){
     $("#id1").blur(function(){
 	console.log("username input blur event run()");
 	//$.ajax({ ... ... });
+	var loginUsername = document.getElementById("loginUsername");
+	console.log(loginUsername);
 	$.ajax({
 	    type:"post",
 	    //url:"${pageContext.request.contextPath}/RegistServlet",

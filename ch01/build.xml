@@ -2,57 +2,67 @@
 <!-- 定义一个工程，默认任务为warFile。 --> 
 <project name="hello" default="warFile" basedir="."> 
 <!-- 定义属性，打成war包的名称。 --> 
-<property name="warFileName" value="hello.war"></property>
+    <property name="warFileName" value="hello.war"></property>
+    <property name="webapps.hello" value="/Users/lipengyang/Tools/server/tomcat-war-test/webapps/hello"></property>
+
 
 <!-- 定义路径，编译java文件时用到的jar包。 --> 
-<path id="project.lib"> 
-    <fileset dir="${basedir}/lib"> 
-	<include name="**/*.jar"/> 
-    </fileset> 
-</path> 
+    <path id="project.lib"> 
+	<fileset dir="${basedir}/lib"> 
+	    <include name="**/*.jar"/> 
+	</fileset> 
+    </path> 
 
 <!-- 定义任务，清空任务：清空原有的class文件，创建新的build路径。 --> 
-<target name="clean"> 
-    <delete dir="${basedir}/src/webapp/WEB-INF/classes" /> 
-    <mkdir dir="${basedir}/src/webapp/WEB-INF/classes" /> 
-</target> 
+    <target name="clean"> 
+	<delete dir="${basedir}/src/webapp/WEB-INF/classes" /> 
+	<mkdir dir="${basedir}/src/webapp/WEB-INF/classes" /> 
+
+	<delete dir="${webapps.hello}" /> 
+    </target> 
 
 <!-- 定义任务，编译src文件夹中的java文件，编译后的class文件放到创建的文件夹下。 --> 
-<target name="build" depends="clean"> 
-    <javac srcdir="${basedir}/src/java" destdir="${basedir}/src/webapp/WEB-INF/classes" includeantruntime="false" source="1.8" target="1.8"> 
-    <classpath refid="project.lib"> 
-    </classpath> 
-    </javac>
+    <target name="build" depends="clean"> 
+	<javac srcdir="${basedir}/src/java" destdir="${basedir}/src/webapp/WEB-INF/classes" includeantruntime="false" source="1.8" target="1.8"> 
+	<classpath refid="project.lib"> 
+	</classpath> 
+	</javac>
 <!--复制src/main/java下非java文件到/src/main/webapp/WEB-INF/classes-->
-    <copy todir="${basedir}/src/webapp/WEB-INF/classes">
-	<fileset dir="${basedir}/src/java">
-	    <include name="**/**.*" /> 
-	    <exclude name="**/*.java"/>     
-	</fileset>
-    </copy>
+	<copy todir="${basedir}/src/webapp/WEB-INF/classes">
+	    <fileset dir="${basedir}/src/java">
+		<include name="**/**.*" /> 
+		<exclude name="**/*.java"/>     
+	    </fileset>
+	</copy>
 <!-- css jsp js 文件夹放在webapp目录下，只要目录不是空的，就会被放在war包中 -->
-</target> 
+    </target> 
 
 <!-- 定义默认任务，将class文件集合成jar包。 -->
-<target name="warFile" depends="build"> 
+    <target name="warFile" depends="build"> 
 <!--将lib文件夹下的jar打包到WEB-INF/lib下 -->
-    <copy todir="${basedir}/src/webapp/WEB-INF/lib">
-	<fileset dir="${basedir}/lib">
-	</fileset>
-    </copy>
+	<copy todir="${basedir}/src/webapp/WEB-INF/lib">
+	    <fileset dir="${basedir}/lib">
+	    </fileset>
+	</copy>
 <!-- 建立新war包。 --> 
-    <war destfile="${basedir}/${warFileName}" webxml="${basedir}/src/webapp/WEB-INF/web.xml"> 
+	<war destfile="${basedir}/${warFileName}" webxml="${basedir}/src/webapp/WEB-INF/web.xml"> 
 <!-- 将非jar和非class文件拷贝到war包的对应路径下。 将src/main/webapp目录作为war的根目录--> 
-	<fileset dir="${basedir}/src/webapp"> 
+	    <fileset dir="${basedir}/src/webapp"> 
 	    <!-- 下面的配置使得css、js、jsp文件夹被打进war包中-->
-	    <include name="**/**.*" /> 
+		<include name="**/**.*" /> 
 	    <!-- 排除-->
-	    <exclude name="**/*.jar"/> 
-	    <exclude name="**/*.class"/> 
-	</fileset> 
+		<exclude name="**/*.jar"/> 
+		<exclude name="**/*.class"/> 
+	    </fileset> 
 <!-- 将jar和class文件拷贝到war包的对应路径下。 --> 
-	<lib dir="${basedir}/src/webapp/WEB-INF/lib" /> 
-	<classes dir="${basedir}/src/webapp/WEB-INF/classes" /> 
-    </war> 
-</target> 
+	    <lib dir="${basedir}/src/webapp/WEB-INF/lib" /> 
+	    <classes dir="${basedir}/src/webapp/WEB-INF/classes" /> 
+	</war> 
+	<copy todir="/Users/lipengyang/Tools/server/tomcat-war-test/webapps">
+	    <fileset dir="${basedir}">
+		<include name="hello.war"/>
+	    </fileset>
+	</copy>
+    </target> 
+
 </project>
