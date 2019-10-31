@@ -3,3 +3,8 @@ after add
 add
 
 test checkout --
+test 3 
+
+
+reset test
+reset test 1
