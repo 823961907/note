@@ -2,10 +2,13 @@ package cn.action;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.File;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,20 +17,57 @@ import javax.servlet.http.Cookie;
 //提供一种方法来跨多个页面请求或访问Web站点来标识用户，并存储有关该用户的信息。
 import javax.servlet.http.HttpSession;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
+import org.apache.log4j.BasicConfigurator;
 
 
 
 public class LoginServlet extends HttpServlet{
 
+    private static Logger logger = Logger.getLogger(LoginServlet.class);
     public LoginServlet(){
 	super();
     }
 
     public void init(ServletConfig config) throws ServletException{
 	System.out.println("run new LoginServlet().init");
+	//log4j test
+	ServletContext sc = config.getServletContext();
+
+	String log4jLocation = "/WEB-INF/classes/config/log4j.properties";
+	System.err.println(log4jLocation);
+
+	String webAppPath = sc.getRealPath("/");
+	System.err.println(webAppPath);
+
+	String log4jProp = webAppPath + log4jLocation;
+	System.err.println(log4jProp);
+
+	File yoMamaYesThisSaysYoMama = new File(log4jProp);
+	if (yoMamaYesThisSaysYoMama.exists()) { 
+	    System.out.println("使用: " + log4jProp+"初始化日志设置信息");
+	    PropertyConfigurator.configure(log4jProp);
+	}else{
+	    System.err.println("*** " + log4jProp + " 文件没有找到， 所以使用 BasicConfigurator初始化");
+	   BasicConfigurator.configure(); 
+	}
+
+	//PropertyConfigurator.configure("/config/log4j.properties");
+
+	//PropertyConfigurator.configure("/config/log4j.properties");
+	logger.debug("This is debug message.");
+	System.out.println("log info complete");
+	logger.info("This is info message.");
+	System.out.println("log info complete");
+	logger.error("This is error message.");
+	System.out.println("log info complete");
+
+	//log4j test
     }
 
     protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+
 	//request
 	/*
 	String username = request.getParameter("username");

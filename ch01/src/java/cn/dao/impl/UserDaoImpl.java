@@ -12,7 +12,9 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 public class UserDaoImpl implements UserDao{
+
 
     public int registUser(BaseUser baseUser){
 	System.out.println("regist method run ...");
