@@ -3,6 +3,7 @@ package cn.dao.impl;
 import cn.dao.UserDao;
 import cn.bean.BaseUser;
 import cn.dao.util.DBUtil;
+import cn.dao.util.HibernateUtil;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -12,9 +13,15 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.hibernate.Transaction;
+import org.hibernate.Session;
+import org.hibernate.Query;
+
+import org.apache.log4j.Logger;
 
 public class UserDaoImpl implements UserDao{
 
+    private static final Logger logger = Logger.getLogger(UserDaoImpl.class);
 
     public int registUser(BaseUser baseUser){
 	System.out.println("regist method run ...");
@@ -22,6 +29,25 @@ public class UserDaoImpl implements UserDao{
 	//get statement
 	//exeinster
 	//close()
+	
+	// hibernate :
+	// TODO Auto-generated method stub
+	logger.debug("start get hibernate ...");
+        Session session = HibernateUtil.currentSession();
+        Transaction tx=session.beginTransaction();
+	logger.debug("got hibernate session & session.beginTransaction...");
+        
+        try {
+	    logger.debug("hibernate to save javabean...");
+            session.save(baseUser);//保存次酒类对象
+            tx.commit();//提交到数据库
+	    logger.debug("hibernate commit ...");
+            session.close();
+	    logger.debug("hibernate session close...");
+        } catch (Exception e) {
+            e.printStackTrace();
+            tx.rollback();
+        }
 
 	return 1;
 	
