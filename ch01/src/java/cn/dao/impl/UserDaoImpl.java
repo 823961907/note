@@ -39,8 +39,8 @@ public class UserDaoImpl implements UserDao{
         
         try {
 	    logger.debug("hibernate to save javabean...");
-            session.save(baseUser);//保存次酒类对象
-            tx.commit();//提交到数据库
+            session.save(baseUser);
+            tx.commit();
 	    logger.debug("hibernate commit ...");
             session.close();
 	    logger.debug("hibernate session close...");

@@ -4,6 +4,7 @@ import cn.bean.test.BaseUserTest;
 
 public class BaseUser{
 
+    private int id;
     private String userName;
     private String password;
     private String rePassword;
@@ -11,11 +12,16 @@ public class BaseUser{
 
     public BaseUser(){}
 
-    public BaseUser(String userName,String password,String rePassword,String passwordTip){
+    public BaseUser(int id,String userName,String password,String rePassword,String passwordTip){
+	this.id = id;
 	this.userName = userName;
 	this.password = password;
 	this.rePassword = rePassword;
 	this.passwordTip = passwordTip;
+    }
+
+    public void setId(int id){
+	this.id = id;
     }
 
     public void setUserName(String userName){
@@ -32,6 +38,11 @@ public class BaseUser{
 
     public void setPasswordTip(String passwordTip){
 	this.passwordTip = passwordTip;
+    }
+
+
+    public int getId(){
+	return id;
     }
 
     public String getUserName(){

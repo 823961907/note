@@ -9,8 +9,6 @@ log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,S
  
 ### 输出DEBUG 级别以上的日志
 log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
-
-# 这个路径在tomcat中和webapps是平级的,tomcat 的第一路径
 log4j.appender.D.File = log/debug.log
 log4j.appender.D.Append = true
 log4j.appender.D.Threshold = DEBUG 

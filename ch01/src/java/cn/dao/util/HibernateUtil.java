@@ -5,31 +5,28 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateUtil extends HttpServlet{
-private static final SessionFactory sessionFactory;
-    
-    private static final Logger logger = Logger.getLogger(HibernateUtil.class);
+import org.hibernate.Transaction;
+import org.hibernate.Session;
 
+import cn.bean.BaseUser;
+
+public class HibernateUtil {
+    private static final SessionFactory sessionFactory;
+    
     static
     {
         try
         {
-	    //logger.info("");
-	    logger.info("ready to get hibernate.cfg.xml");
+	    System.out.println(System.getProperty("user.dir"));
+	    String user_dir = System.getProperty("user.dir");
+	    String cfg_dir = user_dir + "/config/hibernate.cfg.xml";
+	    System.out.println(cfg_dir);
+	    
+            //Configuration config = new Configuration().configure(cfg_dir);
+            Configuration config = new Configuration().configure("/config/hibernate.cfg.xml");
 
-	    ServletContext sc = config.getServletContext();
-	    String webAppPath = sc.getRealPath("/");
-	    logger.info("webAppPath:"+webAppPath);
-	    String hibernate_cfg_xml = "/WEB-INF/classes/config/hibernate.cfg.xml";
-	    String cfg_file = webAppPath + hibernate_cfg_xml;
-	    logger.info("hibernate_cfg_xml Path:" + cfg_file);
-	    //File cfgFile = new File(cfg_file);
-
-            Configuration config = new Configuration().configure(cfg_file);
-	    logger.info("got hibernate.cfg.xml");
-	    logger.info("ready to get config.buildSessionFactory");
+	    System.out.println("got cfg");
             sessionFactory = config.buildSessionFactory();
-	    logger.info("got hibernate.cfg.xml");
         }
         catch(Throwable e)
         {
@@ -57,5 +54,15 @@ private static final SessionFactory sessionFactory;
         session.set(null);
         if(s != null)
             s.close();
+    }
+
+    public static void main(String args[]){
+	Session session = HibernateUtil.currentSession();
+	Transaction tx=session.beginTransaction();
+	BaseUser registBean = new BaseUser();
+	session.save(registBean);
+	tx.commit();
+	session.close();
+	System.out.println("complete");
     }
 }
