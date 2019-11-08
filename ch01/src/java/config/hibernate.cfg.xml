@@ -24,7 +24,9 @@
     <property name="format_sql">true</property>
     <property name="hbm2ddl.auto">update</property>
 
-    <mapping resource="/config/BaseUser.hbm.xml"/>
+    <!-- test dir -->
+    <!-- <mapping resource="/config/BaseUser.hbm.xml"/> -->
+    <mapping resource="config/BaseUser.hbm.xml"/>
     
 
 </session-factory>

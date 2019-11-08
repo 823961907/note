@@ -19,11 +19,12 @@ public class HibernateUtil {
         {
 	    System.out.println(System.getProperty("user.dir"));
 	    String user_dir = System.getProperty("user.dir");
-	    String cfg_dir = user_dir + "/config/hibernate.cfg.xml";
+	    String cfg_dir = user_dir + "/webapps/hello/WEB-INF/classes/config/hibernate.cfg.xml";
 	    System.out.println(cfg_dir);
 	    
             //Configuration config = new Configuration().configure(cfg_dir);
-            Configuration config = new Configuration().configure("/config/hibernate.cfg.xml");
+            //Configuration config = new Configuration().configure("/config/hibernate.cfg.xml");
+            Configuration config = new Configuration().configure("config/hibernate.cfg.xml");
 
 	    System.out.println("got cfg");
             sessionFactory = config.buildSessionFactory();
@@ -60,6 +61,10 @@ public class HibernateUtil {
 	Session session = HibernateUtil.currentSession();
 	Transaction tx=session.beginTransaction();
 	BaseUser registBean = new BaseUser();
+	registBean.setUserName("name1");
+	registBean.setPassword("ps1");
+	registBean.setRePassword("ps1");
+	registBean.setPasswordTip("pstip");
 	session.save(registBean);
 	tx.commit();
 	session.close();

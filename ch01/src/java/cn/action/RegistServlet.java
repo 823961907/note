@@ -54,10 +54,11 @@ public class RegistServlet extends HttpServlet{
 
 	
 	BaseUser registBean = new BaseUser();
-	registBean.setUserName(username);
-	registBean.setPassword(password);
-	registBean.setRePassword(repassword);
-	registBean.setPasswordTip(passwdTip);
+	BaseUser registBean1 = new BaseUser();
+	registBean1.setUserName(username);
+	registBean1.setPassword(password);
+	registBean1.setRePassword(repassword);
+	registBean1.setPasswordTip(passwdTip);
 
 	UserDao dao = new UserDaoImpl();
 	
@@ -70,7 +71,7 @@ public class RegistServlet extends HttpServlet{
 
 	if(registBean == null ){
 	    String responseStr = "{\"res\":\"0\"}";
-	    int i = dao.registUser(registBean);
+	    int i = dao.registUser(registBean1);
 	    response.setContentType("application/json");
 	    response.getWriter().write(responseStr);
 	}else{
