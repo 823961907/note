@@ -24,9 +24,18 @@
   metadata-complete="true">
 
   <display-name>Welcome to Tomcat</display-name>
+
+  <!--
+  <display-name>Struts 2</display-name>
+  <welcome-file-list>
+     <welcome-file>/jsp/index_struts.jsp</welcome-file>
+  </welcome-file-list>
+  -->
+
   <description>
      Welcome to Tomcat
   </description>
+
 
   <!-- servlet -->
   <servlet>
@@ -72,11 +81,13 @@
   </filter-mapping>
 
   <!-- struts2 -->
+  <!--
   <filter>  
     <filter-name>struts</filter-name>  
     <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>  
-    <!-- strust.xml dir -->
+  -->
 
+    <!-- strust.xml dir -->
     <!--
     <init-param>  
         <param-name>config</param-name>  
@@ -84,12 +95,13 @@
     </init-param>  
     -->
 
+  <!--
     <filter-mapping>
       <filter-name>struts2</filter-name>
-      <url-pattern>/*</url-pattern>
+      <url-pattern>/struts</url-pattern>
     </filter-mapping>
-    <!-- strust.xml dir -->
   </filter> 
+  -->
   <!-- struts2 -->
 
   <!-- filter -->
