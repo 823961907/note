@@ -114,7 +114,7 @@
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    <!-- 指定struts.xml的位置>
+    <!-- 指定struts.xml的位置 -->
     <init-param>
       <param-name>config</param-name>
       <param-value>struts-default.xml,struts-plugin.xml,config/struts.xml</param-value>
