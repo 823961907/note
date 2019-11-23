@@ -6,7 +6,7 @@
     <property name="webapps.hello" value="/Users/lipengyang/Tools/server/tomcat-war-test/webapps/hello"></property>
 
 
-<!-- 定义路径，编译java文件时用到的jar包。 javac *.java文件 则import 的jar 必须在CLASSPATH中可以找到，这里配置编译用到的jar ，--> 
+<!-- 定义路径，编译java文件时用到的jar包。 javac *.java文件 则import 的jar 必须在CLASSPATH中可以找到，这里配置编译用到的jar ，有一些jar包是javac需要，有些jar是java需要，理解了java和javac的关系jar包的两种加载方式就理解了,这里配置的和javac有关，shell:java *.class 用到的jar还配置.bash_profile的classpath比较合适--> 
     <path id="project.lib"> 
 	<fileset dir="${basedir}/lib"> 
 	    <include name="**/*.jar"/> 
