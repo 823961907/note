@@ -6,16 +6,15 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import cn.dao.SpringDaoDemo1;
 
-
 public class SpringAction{
 
-    public static void main(){
+    public static void main(String args[]){
 	//ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 	ApplicationContext applicationContext = new FileSystemXmlApplicationContext("applicationContext.xml");
 
 	SpringDaoDemo1 helloService = (SpringDaoDemo1)applicationContext.getBean("helloService");
 
-	helloService.sayHello();
+	helloService.SayHello();
 	
     }
 }
