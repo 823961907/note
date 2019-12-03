@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- 定义一个工程，默认任务为warFile。 --> 
+<project name="mybatisTest" default="build" basedir="."> 
+
+<!-- 定义路径，编译java文件时用到的jar包。 javac *.java文件 则import 的jar 必须在CLASSPATH中可以找到，这里配置编译用到的jar ，有一些jar包是javac需要，有些jar是java需要，理解了java和javac的关系jar包的两种加载方式就理解了,这里配置的和javac有关，shell:java *.class 用到的jar还配置.bash_profile的classpath比较合适--> 
+    <path id="project.lib"> 
+	<fileset dir="${basedir}/lib"> 
+	    <include name="**/*.jar"/> 
+	</fileset> 
+    </path> 
+
+<!-- 定义任务，清空任务：清空原有的class文件，创建新的build路径。 --> 
+    <target name="clean"> 
+	<delete dir="${basedir}/target/classes" /> 
+	<mkdir dir="${basedir}/target/classes" /> 
+
+    </target> 
+
+<!-- 定义任务，编译src文件夹中的java文件，编译后的class文件放到创建的文件夹下。 --> 
+    <target name="build" depends="clean"> 
+	<javac srcdir="${basedir}/src/main/java" destdir="${basedir}/target/classes" includeantruntime="false" source="1.8" target="1.8"> 
+	<classpath refid="project.lib"> 
+	</classpath> 
+	</javac>
+<!--复制src/main/java下非java文件到/src/main/webapp/WEB-INF/classes-->
+	<copy todir="${basedir}/target/classes">
+	    <fileset dir="${basedir}/src/main/java">
+		<include name="**/**.*" /> 
+		<exclude name="**/*.java"/>     
+	    </fileset>
+	</copy>
+
+	<copy todir="${basedir}/target/resources">
+	    <fileset dir="${basedir}/src/main/resources">
+		<include name="**/**.*" /> 
+	    </fileset>
+	</copy>
+<!-- css jsp js 文件夹放在webapp目录下，只要目录不是空的，就会被放在war包中 -->
+    </target> 
+
+</project>

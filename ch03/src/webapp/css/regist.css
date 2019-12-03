@@ -1,0 +1,14 @@
+#registTableId{
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    /*border-width: 1px;*/
+    border-color: #666666;
+    border-collapse: collapse;
+}
+.registTableClass{
+    margin:0 auto;
+    border-collapse: collapse;
+    text-align: center;
+    /*border-width: 10px;*/
+}
